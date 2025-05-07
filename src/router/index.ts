@@ -4,7 +4,7 @@ import Layout from '@/layout/index.vue';
 import initRoute from './initRoute';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css'; // progress bar style
-const routes: RouteRecordRaw[] = [
+const moduleRoutes: RouteRecordRaw[] = [
 	{
 		path: '/',
 		component: Layout,
@@ -13,11 +13,34 @@ const routes: RouteRecordRaw[] = [
 				path: 'home',
 				name: 'home',
 				component: () => import('@/pages/home/index.vue')
+			},
+			{
+				path: 'commonScenarios',
+				name: 'commonScenarios',
+				children: [
+					{
+						path: 'bigImgScreen',
+						name: 'bigImgScreen',
+						component: () => import('@/pages/commonScenarios/bigImgRender/index.vue')
+					}
+				]
+			},
+			{
+				path: 'apply',
+				name: 'apply',
+				children: [
+					{
+						path: 'directiveApply',
+						name: 'directiveApply',
+						component: () => import('@/pages/apply/directiveApply/index.vue')
+					}
+				]
 			}
 		]
-	},
-	...initRoute
+	}
 ];
+
+const routes = [...moduleRoutes, ...initRoute];
 
 const router = createRouter({
 	history: createWebHashHistory(),

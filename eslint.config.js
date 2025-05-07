@@ -28,7 +28,8 @@ export default defineConfig([
 			// "@/no-console": "error", // 测试
 			'@/no-useless-catch': 'off', // 测试
 			'@typescript-eslint/no-explicit-any': 'off', // 测试
-			'vue/multi-word-component-names': 'off'
+			'vue/multi-word-component-names': 'off',
+			'@typescript-eslint/no-unused-expressions': 'off', // 
 		}
 	}
 ]);
